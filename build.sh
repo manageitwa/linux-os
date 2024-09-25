@@ -15,9 +15,11 @@ RELEASE="$(rpm -E %fedora)"
 # this installs a package from fedora repos
 rpm-ostree install screen
 
-# this would install a package from rpmfusion
-# rpm-ostree install vlc
+# Override GNOME settings daemon to allow for native XWayland scaling
+rpm-ostree override replace \
+    --experimental \
+    --from repo=copr:copr.fedorainfracloud.org:ublue-os:staging \
+        gnome-settings-daemon
 
 #### Example for enabling a System Unit File
-
 systemctl enable podman.socket
