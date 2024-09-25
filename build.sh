@@ -16,14 +16,14 @@ RELEASE="$(rpm -E %fedora)"
 rpm-ostree install screen
 
 # Override GNOME settings daemon to allow for native XWayland scaling
-sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/ublue-os-staging-fedora-"${FEDORA_MAJOR_VERSION}".repo
+sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/ublue-os-staging-fedora-"${RELEASE}".repo
 
 rpm-ostree override replace \
     --experimental \
     --from repo=copr:copr.fedorainfracloud.org:ublue-os:staging \
         gnome-settings-daemon
 
-sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/ublue-os-staging-fedora-"${FEDORA_MAJOR_VERSION}".repo
+sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/ublue-os-staging-fedora-"${RELEASE}".repo
 
 #### Example for enabling a System Unit File
 systemctl enable podman.socket
