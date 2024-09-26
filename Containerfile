@@ -53,14 +53,16 @@ COPY --from=ghcr.io/ublue-os/akmods-extra:fsync-40 /rpms/ /tmp/rpms
 # Install EVDI kernel module
 RUN curl -o /etc/yum.repos.d/fedora-multimedia.repo https://negativo17.org/repos/fedora-multimedia.repo \
     && find /tmp/rpms \
-    && rpm-ostree install /tmp/rpms/kmods/kmod-evdi*.rpm
+    && rpm-ostree install /tmp/rpms/kmods/kmod-evdi*.rpm \
+    && rm -rf /tmp/rpms
 
 COPY build.sh /tmp/build.sh
 
 RUN mkdir -p /var/lib/alternatives && \
     /tmp/build.sh && \
     ostree container commit
-    
+
+
 ## NOTES:
 # - /var/lib/alternatives is required to prevent failure with some RPM installs
 # - All RUN commands must end with ostree container commit
