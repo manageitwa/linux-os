@@ -48,14 +48,6 @@ FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG}
 ## make modifications desired in your image and install packages by modifying the build.sh script
 ## the following RUN directive does all the things required to run "build.sh" as recommended.
 
-COPY --from=ghcr.io/ublue-os/akmods-extra:fsync-40 /rpms/ /tmp/rpms
-
-# Install EVDI kernel module
-RUN mkdir -p /var/lib/alternatives && \
-    curl -o /etc/yum.repos.d/fedora-multimedia.repo https://negativo17.org/repos/fedora-multimedia.repo && \
-    rpm-ostree install /tmp/rpms/kmods/kmod-evdi*.rpm && \
-    ostree container commit
-
 # COPY build.sh /tmp/build.sh
 
 # RUN mkdir -p /var/lib/alternatives && \
