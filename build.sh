@@ -15,7 +15,9 @@ RELEASE="$(rpm -E %fedora)"
 rpm-ostree install \
     evolution \
     evolution-ews \
-    iptables-legacy
+    iptables-legacy \
+    libsass \
+    sassc
 
 #### Example for enabling a System Unit File
 systemctl enable podman.socket
