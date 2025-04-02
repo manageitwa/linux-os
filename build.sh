@@ -16,7 +16,9 @@ RELEASE="$(rpm -E %fedora)"
 rpm-ostree install \
     evolution \
     evolution-ews \
-    iptables-legacy
+    iptables-legacy \
+    libsass \
+    sassc
 
 # Install 1Password
 rpm-ostree install https://downloads.1password.com/linux/rpm/stable/x86_64/1password-latest.rpm
