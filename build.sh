@@ -20,8 +20,5 @@ rpm-ostree install \
     libsass \
     sassc
 
-# Install 1Password
-rpm-ostree install https://downloads.1password.com/linux/rpm/stable/x86_64/1password-latest.rpm
-
 #### Example for enabling a System Unit File
 systemctl enable podman.socket
