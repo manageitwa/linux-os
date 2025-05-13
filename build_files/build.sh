@@ -2,8 +2,6 @@
 
 set -ouex pipefail
 
-RELEASE="$(rpm -E %fedora)"
-
 ### Install packages
 
 # Packages can be installed from any enabled yum repo on the image.
@@ -13,7 +11,7 @@ RELEASE="$(rpm -E %fedora)"
 
 # Install Evolution, EWS and legacy iptables
 # Note: iptables-legacy is needed for Docker-in-Docker compatibility within VSCode
-rpm-ostree install \
+dnf5 install -y install \
     evolution \
     evolution-ews \
     iptables-legacy \
