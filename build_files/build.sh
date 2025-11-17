@@ -16,7 +16,8 @@ dnf5 install -y install \
     evolution-ews \
     iptables-legacy \
     libsass \
-    sassc
+    sassc \
+    libappindicator-gtk3
 
 #### Example for enabling a System Unit File
 systemctl enable podman.socket
