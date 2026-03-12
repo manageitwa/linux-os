@@ -15,10 +15,12 @@ dnf5 install -y libappindicator-gtk3
 # Install Mailspring latest version
 wget -O /tmp/mailspring.rpm https://updates.getmailspring.com/download?platform=linuxRpm
 dnf5 install -y /tmp/mailspring.rpm
+rm /tmp/mailspring.rpm
 
 # Install 1Password latest version
 wget -O /tmp/1password.rpm https://downloads.1password.com/linux/rpm/stable/x86_64/1password-latest.rpm
 dnf5 install -y /tmp/1password.rpm
+rm /tmp/1password.rpm
 
 #### Example for enabling a System Unit File
 # systemctl enable podman.socket
