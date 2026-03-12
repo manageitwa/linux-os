@@ -9,15 +9,16 @@ set -ouex pipefail
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
-# Install Evolution, EWS and legacy iptables
-# Note: iptables-legacy is needed for Docker-in-Docker compatibility within VSCode
-dnf5 install -y install \
-    evolution \
-    evolution-ews \
-    iptables-legacy \
-    libsass \
-    sassc \
-    libappindicator-gtk3
+# Install AppIndicator GTK3 support for some apps
+dnf5 install -y libappindicator-gtk3
+
+# Install Mailspring latest version
+wget -O /tmp/mailspring.rpm https://updates.getmailspring.com/download?platform=linuxRpm
+dnf5 install -y /tmp/mailspring.rpm
+
+# Install 1Password latest version
+wget -O /tmp/1password.rpm https://downloads.1password.com/linux/rpm/stable/x86_64/1password-latest.rpm
+dnf5 install -y /tmp/1password.rpm
 
 #### Example for enabling a System Unit File
-systemctl enable podman.socket
+# systemctl enable podman.socket
