@@ -22,5 +22,10 @@ wget -O /tmp/1password.rpm https://downloads.1password.com/linux/rpm/stable/x86_
 dnf5 install -y /tmp/1password.rpm
 rm /tmp/1password.rpm
 
+# Install Claude Desktop Linux latest version
+curl -sL $(curl -s https://api.github.com/repos/aaddrick/claude-desktop-debian/releases/latest | grep -o 'https://[^"]*x86_64\.rpm' | head -1) -o /tmp/claude-desktop.rpm
+dnf5 install -y /tmp/claude-desktop.rpm
+rm /tmp/claude-desktop.rpm
+
 #### Example for enabling a System Unit File
 # systemctl enable podman.socket
