@@ -17,23 +17,12 @@ wget -O /tmp/mailspring.rpm https://updates.getmailspring.com/download?platform=
 dnf5 install -y /tmp/mailspring.rpm
 rm /tmp/mailspring.rpm
 
-# Install 1Password latest version
-wget -O /tmp/1password.rpm https://downloads.1password.com/linux/rpm/stable/x86_64/1password-latest.rpm
-dnf5 install -y /tmp/1password.rpm
-rm /tmp/1password.rpm
-
 # Install Claude Desktop Linux latest version
 # https://github.com/aaddrick/claude-desktop-debian
 curl -sL $(curl -s https://api.github.com/repos/aaddrick/claude-desktop-debian/releases/latest | grep -o 'https://[^"]*x86_64\.rpm' | head -1) -o /tmp/claude-desktop.rpm
 dnf5 install -y /tmp/claude-desktop.rpm
 rm /tmp/claude-desktop.rpm
 
-# Install Devpod and Devpod CLI (community edition)
-# https://github.com/skevetter/devpod
-curl -sL $(curl -s https://api.github.com/repos/skevetter/devpod/releases/latest | grep -o 'https://[^"]*linux_x86_64\.rpm' | head -1) -o /tmp/devpod.rpm
-dnf5 install -y /tmp/devpod.rpm
-rm /tmp/devpod.rpm
-curl -sL $(curl -s https://api.github.com/repos/skevetter/devpod/releases/latest | grep -o 'https://[^"]*devpod-linux-amd64' | head -1) -o /usr/bin/devpod-cli
 
 #### Example for enabling a System Unit File
 # systemctl enable podman.socket
