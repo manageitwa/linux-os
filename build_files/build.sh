@@ -29,5 +29,10 @@ curl -sL $(curl -s https://api.github.com/repos/skevetter/devpod/releases/latest
 dnf5 install -y /tmp/devpod.rpm
 rm /tmp/devpod.rpm
 
+# Install DDLess PHP debugger
+wget -O /tmp/ddless.rpm https://ddless-releases.s3.us-east-1.amazonaws.com/linux/ddless.rpm
+dnf5 install -y /tmp/ddless.rpm
+rm /tmp/ddless.rpm
+
 #### Example for enabling a System Unit File
 # systemctl enable podman.socket
