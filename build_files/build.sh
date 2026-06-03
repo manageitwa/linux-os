@@ -23,6 +23,11 @@ curl -sL $(curl -s https://api.github.com/repos/aaddrick/claude-desktop-debian/r
 dnf5 install -y /tmp/claude-desktop.rpm
 rm /tmp/claude-desktop.rpm
 
+# Install Devpod and Devpod CLI (community edition)
+# https://github.com/skevetter/devpod
+curl -sL $(curl -s https://api.github.com/repos/skevetter/devpod/releases/latest | grep -o 'https://[^"]*linux_x86_64\.rpm' | head -1) -o /tmp/devpod.rpm
+dnf5 install -y /tmp/devpod.rpm
+rm /tmp/devpod.rpm
 
 #### Example for enabling a System Unit File
 # systemctl enable podman.socket
